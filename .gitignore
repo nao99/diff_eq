@@ -1,0 +1,5 @@
+.idea
+/cmake-build-debug/
+
+/scripts/.idea
+/scripts/venv
