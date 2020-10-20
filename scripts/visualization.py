@@ -39,32 +39,67 @@ if __name__ == "__main__":
 
             rowValues = row[0].split(';')
 
-            exactly_values['x'].append(rowValues[0])
-            exactly_values['u'].append(rowValues[1])
+            exactly_values['x'].append(float(rowValues[0]) * 1000)
+            exactly_values['u'].append(float(rowValues[1]) * 1000)
 
-            euler_values['x'].append(rowValues[0])
-            euler_values['u'].append(rowValues[2])
+            euler_values['x'].append(float(rowValues[0]) * 1000)
+            euler_values['u'].append(float(rowValues[2]) * 1000)
 
-            rugne_kutta_values['x'].append(rowValues[0])
-            rugne_kutta_values['u'].append(rowValues[3])
+            rugne_kutta_values['x'].append(float(rowValues[0]) * 1000)
+            rugne_kutta_values['u'].append(float(rowValues[3]) * 1000)
 
-            euler_error['x'].append(rowValues[0])
-            euler_error['u'].append(rowValues[4])
+            euler_error['x'].append(float(rowValues[0]) * 1000)
+            euler_error['u'].append(float(rowValues[4]) * 1000)
 
-            rugne_kutta_error['x'].append(rowValues[0])
-            rugne_kutta_error['u'].append(rowValues[5])
+            rugne_kutta_error['x'].append(float(rowValues[0]) * 1000)
+            rugne_kutta_error['u'].append(float(rowValues[5]) * 1000)
 
-        plt.plot(exactly_values['x'], exactly_values['u'])
+        fig, ax = plt.subplots()
+
+        ax.plot(exactly_values['x'], exactly_values['u'])
+
+        ax.set_xlabel('1000x')
+        ax.set_ylabel('1000u')
+
+        plt.title('Exactly solution')
         plt.show()
 
-        plt.plot(euler_values['x'], euler_values['u'])
+        fig, ax = plt.subplots()
+
+        ax.plot(euler_values['x'], euler_values['u'])
+
+        ax.set_xlabel('1000x')
+        ax.set_ylabel('1000u')
+
+        plt.title('Euler solution')
         plt.show()
 
-        plt.plot(rugne_kutta_values['x'], rugne_kutta_values['u'])
+        fig, ax = plt.subplots()
+
+        ax.plot(rugne_kutta_values['x'], rugne_kutta_values['u'])
+
+        ax.set_xlabel('1000x')
+        ax.set_ylabel('1000u')
+
+        plt.title('Runge Kutta solution')
         plt.show()
 
-        plt.plot(euler_error['x'], euler_error['u'])
+        fig, ax = plt.subplots()
+
+        ax.plot(euler_error['x'], euler_error['u'])
+
+        ax.set_xlabel('1000x')
+        ax.set_ylabel('1000u')
+
+        plt.title('Euler error')
         plt.show()
 
-        plt.plot(rugne_kutta_error['x'], rugne_kutta_error['u'])
+        fig, ax = plt.subplots()
+
+        ax.plot(rugne_kutta_error['x'], rugne_kutta_error['u'])
+
+        ax.set_xlabel('1000x')
+        ax.set_ylabel('1000u')
+
+        plt.title('Runge Kutta error')
         plt.show()
